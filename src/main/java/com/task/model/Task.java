@@ -14,15 +14,8 @@ public class Task {
     private LocalDate deadline;
     @Column(name = "employee_id")
     private Long employeeId;
-    private Long assignedToId;
 
-    public Long getAssignedToId() {
-        return assignedToId;
-    }
 
-    public void setAssignedToId(Long assignedToId) {
-        this.assignedToId = assignedToId;
-    }
 
     public Long getEmployeeId() {
         return employeeId;

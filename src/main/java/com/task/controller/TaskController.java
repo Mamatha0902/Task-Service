@@ -20,9 +20,9 @@ public class TaskController {
         return ResponseEntity.ok(createdTask);
     }
 
-    @GetMapping("/employee/{id}")
-    public ResponseEntity<List<Task>> getTasksForEmployee(@PathVariable Long id) {
-        return ResponseEntity.ok((List<Task>) taskService.getTasksForEmployee(id));
+    @GetMapping("/employee")
+    public ResponseEntity<List<Task>> getTasksForEmployee(@RequestParam Long id) {
+        return ResponseEntity.ok(taskService.getTasksForEmployee(id));
     }
 
     @GetMapping("/all")
@@ -30,8 +30,8 @@ public class TaskController {
         return ResponseEntity.ok(taskService.getAllTasks());
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody TaskDto dto) {
+    @PutMapping("/update")
+    public ResponseEntity<Task> updateTask(@RequestParam Long id, @RequestBody Task dto) {
         Task updatedTask = taskService.updateTask(id, dto);
         if (updatedTask != null) {
             return ResponseEntity.ok(updatedTask);

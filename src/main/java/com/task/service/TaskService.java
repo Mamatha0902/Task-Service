@@ -34,7 +34,7 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task updateTask(Long id, TaskDto dto) {
+    public Task updateTask(Long id, Task dto) {
         Optional<Task> optionalTask = taskRepository.findById(id);
         if (optionalTask.isPresent()) {
             Task task = optionalTask.get();
