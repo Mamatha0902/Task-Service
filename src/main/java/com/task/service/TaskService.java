@@ -47,4 +47,11 @@ public class TaskService {
         }
         return null;
     }
+
+    public void assignTask(Long taskId, Long empId) {
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+        task.setEmployeeId(empId);
+        taskRepository.save(task);
+    }
 }

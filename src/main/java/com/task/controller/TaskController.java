@@ -38,5 +38,15 @@ public class TaskController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @PostMapping("/assign")
+    public ResponseEntity<String> assignTask(
+            @RequestParam Long taskId,
+            @RequestParam Long empId
+            ) {
+
+        taskService.assignTask(taskId, empId);
+        return ResponseEntity.ok("Task assigned successfully");
+    }
 }
 
