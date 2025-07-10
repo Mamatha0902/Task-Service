@@ -54,4 +54,9 @@ public class TaskService {
         task.setEmployeeId(empId);
         taskRepository.save(task);
     }
+
+    public Task getTaskByTaskId(Long taskId) {
+        return taskRepository.findById(taskId)
+                .orElseThrow(() -> new RuntimeException("Task not found with ID: " + taskId));
+    }
 }

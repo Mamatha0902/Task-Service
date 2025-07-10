@@ -25,6 +25,11 @@ public class TaskController {
         return ResponseEntity.ok(taskService.getTasksForEmployee(id));
     }
 
+    @GetMapping("/getById")
+    public ResponseEntity<Task> getTaskByTaskId(@RequestParam Long taskId) {
+        Task task = taskService.getTaskByTaskId(taskId);
+        return ResponseEntity.ok(task);
+    }
     @GetMapping("/all")
     public ResponseEntity<List<Task>> getAllTasks() {
         return ResponseEntity.ok(taskService.getAllTasks());
